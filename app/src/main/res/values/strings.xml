@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Examen Desembre</string>
+    <string name="pregunta_1">In my free time I like to...</string>
+    <string name="pregunta_2">What\'s your favourite movie?</string>
+    <string name="pregunta_3">How do you feel about selfies?</string>
+    <string name="boto_next">Next</string>
+    <string name="boto_previous">Previous</string>
+</resources>
