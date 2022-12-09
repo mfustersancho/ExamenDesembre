@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/resposta_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -72,7 +72,7 @@
             android:textAlignment="textStart" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/resposta_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -86,7 +86,7 @@
             android:textAlignment="textStart" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/resposta_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -100,7 +100,7 @@
             android:textAlignment="textStart" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/resposta_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -115,16 +115,16 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button_next_pregunta_2"
+        android:id="@+id/button_previous_pregunta_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/boto_previous"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_previous_pregunta_2"
+        app:layout_constraintEnd_toStartOf="@+id/button_next_pregunta_2"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button_previous_pregunta_2"
+        android:id="@+id/button_next_pregunta_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/boto_next"

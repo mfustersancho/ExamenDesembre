@@ -50,52 +50,52 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/pregunta_1_resposta_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="CheckBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+        android:text="Read"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/pregunta_1_resposta_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="CheckBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        android:text="Work out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pregunta_1_resposta_1" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/pregunta_1_resposta_3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="CheckBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        android:text="Draw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pregunta_1_resposta_2" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/pregunta_1_resposta_4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="CheckBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+        android:text="Play video games"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pregunta_1_resposta_3" />
 
     <Button
         android:id="@+id/button_next_pregunta_1"

@@ -3,6 +3,7 @@ package com.example.examendesembre;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -86,26 +87,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean comprobarEmail(String email) {
-        try {
-            InputStream inputStream = this.openFileInput("users.txt");
-            if(inputStream != null) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    return true;
-                }
-
-                inputStream.close();
-            }
-        }
-        catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        }
-
-        return false;
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("signin", MODE_PRIVATE);
+        String user = sharedPreferences.getString("user", "");
+        return user != null && email.compareTo(user) == 0;
     }
 }

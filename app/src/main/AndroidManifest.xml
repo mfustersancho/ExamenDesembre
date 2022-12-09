@@ -15,6 +15,20 @@
         android:theme="@style/Theme.ExamenDesembre"
         tools:targetApi="31">
         <activity
+            android:name=".Resultats"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Pregunta_3"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Pregunta_2"
             android:exported="false">
             <meta-data

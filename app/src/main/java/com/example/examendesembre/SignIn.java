@@ -3,6 +3,7 @@ package com.example.examendesembre;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +31,8 @@ public class SignIn extends AppCompatActivity {
 
     boolean estadoInscribir;
 
+    SharedPreferences mSharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,8 @@ public class SignIn extends AppCompatActivity {
         mEmailInputEditText.setFocusable(false);
         estadoInscribir = intent.getBooleanExtra("com.example.SignIn.inscribir", true);
         mPasswordTextInputEditText.setFocusableInTouchMode(true);
+
+        mSharedPreferences = getApplicationContext().getSharedPreferences("signin", MODE_PRIVATE);
 
         if(!estadoInscribir) {
             mTextFuncion.setText("Continue");
@@ -93,56 +98,23 @@ public class SignIn extends AppCompatActivity {
         });
 
         mButtonSignIn.setOnClickListener(view -> {
+            Intent juegos = new Intent(this, Pregunta_1.class);
             if(estadoInscribir) {
-                try {
-                    FileOutputStream outputStream = openFileOutput("users.txt", MODE_APPEND);
-                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
-                    outputStreamWriter.write(mEmailInputEditText.getText().toString());
-                    outputStreamWriter.write(mPasswordTextInputEditText.getText().toString());
-                    Log.d("SignIn", "Grabado: " + mEmailInputEditText.getText().toString() +
-                            " : " + mPasswordTextInputEditText.getText().toString() +
-                            " en " + outputStream.getFD());
-                    outputStreamWriter.flush();
-                    outputStreamWriter.close();
-                    finishAffinity();
-                } catch (IOException e) {
-                    Log.e("SignIn", e.getMessage());
-                }
+                mSharedPreferences.edit().putString("user", mEmailInputEditText.getText().toString()).apply();
+                mSharedPreferences.edit().putString("password", mPasswordTextInputEditText.getText().toString()).apply();
+                startActivity(juegos);
             } else {
                 if(comprobarPassword(mPasswordTextInputEditText.getText().toString())) {
-                    // ir a los juegos
+                    startActivity(juegos);
                 } else {
-                    finishAffinity();
+                    finish();
                 }
             }
         });
     }
 
     public boolean comprobarPassword(String password) {
-        try {
-            InputStream inputStream = this.openFileInput("users.txt");
-            if(inputStream != null) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    if(receiveString.equals(mEmailInputEditText.getText().toString())) {
-                        String pass = bufferedReader.readLine();
-                        if(pass != null && pass.equals(password))
-                            return true;
-                    }
-                }
-
-                inputStream.close();
-            }
-        }
-        catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        }
-
-        return false;
+        String passGuardado = mSharedPreferences.getString("password", "");
+        return passGuardado != null && password.compareTo(passGuardado) == 0;
     }
 }
